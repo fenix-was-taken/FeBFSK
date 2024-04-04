@@ -10,14 +10,15 @@ letter_to_bits = {
     '␒': '10',  # <<STP>> using DC2, does not correspond with Unicode! Unused...
     ' ': '00',
 
-    '␂': '0000',  # <<STX>>
-    '␃': '0001',  # <<ETX>>
-    '␄': '0010',  # <<EOT>>: Will actually end transmission on receiving end.
-    '␅': '0011',  # <<ENQ>>
-    '␆': '0100',  # <<ACK>>
-    '␤': '0101',  # <<NWL>>: Will actually print a newline.
-    '␛': '0110',  # <<ESC>>
-    '␀': '0111',  # <<NUL>>: Will actually print nothing. Good for buffers.
+    '␂': '000',  # <<STX>>
+    '␃': '001',  # <<ETX>>
+    '␄': '010',  # <<EOT>>: Will actually end transmission on receiving end.
+    '␅': '011',  # <<ENQ>>
+    '␆': '100',  # <<ACK>>
+    '␤': '101',  # <<NWL>>: Will actually print a newline.
+    '␛': '110',  # <<ESC>>
+    '␀': '111',  # <<NUL>>: Will actually print nothing. Good for buffers.
+
     'E': '1000',
     'T': '1001',
     'A': '1010',
