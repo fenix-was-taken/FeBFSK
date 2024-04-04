@@ -4,7 +4,7 @@ import numpy as np
 from scipy.signal import find_peaks
 
 '''The following deals with dictionaries for translation and compression, to be used in the
-"translation", "detranslation", "compression" and "decompression" functions.'''
+"translation and "detranslation" functions.'''
 letter_to_bits = {
     '␑': '01',  # <<CAP>> using DC1, does not correspond with Unicode! Will actually toggle caps.
     '␒': '10',  # <<STP>> using DC2, does not correspond with Unicode! Unused...
