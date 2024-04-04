@@ -345,7 +345,7 @@ def demodulate_process():
                                 else:
                                     active_dict = bits_to_letter
                             elif decoded_byte == '␄':
-                                demodulate_end()
+                                demodulate_end() # Kill it
                             else:
                                 print(decoded_byte, end="")
                     decoded_line = ""  # Clear the decoded_line after processing complete bytes
