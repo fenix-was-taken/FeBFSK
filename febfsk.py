@@ -7,7 +7,8 @@ from scipy.signal import find_peaks
 "translation and "detranslation" functions.'''
 letter_to_bits = {
     '␑': '01',  # <<CAP>> using DC1, does not correspond with Unicode! Will actually toggle caps.
-    '␒': '10',  # <<STP>> using DC2, does not correspond with Unicode! Unused...
+    '␒': '10',  # DC2 for any use someone desires.
+    '␓': '11',  # DC3 for any use someone desires.
     ' ': '00',
 
     '␂': '000',  # <<STX>>
@@ -93,7 +94,8 @@ letter_to_bits = {
 bits_to_letter = {v: k for k, v in letter_to_bits.items()}  # "letter_to_bits" but reversed.
 letter_to_bits_lowercase = {
     '␑': '01',  # <<CAP>> using DC1, does not correspond with Unicode! Will actually toggle caps.
-    '␒': '10',  # <<STP>> using DC2, does not correspond with Unicode! Unused...
+    '␒': '10',  # DC2 for any use someone desires.
+    '␓': '11',  # DC3 for any use someone desires.
     ' ': '00',
 
     '␂': '000',  # <<STX>>
@@ -180,9 +182,9 @@ bits_to_letter_lowercase = {v: k for k, v in letter_to_bits_lowercase.items()}  
 '''The following are variables used for the FSK signal generation.'''
 baud_rate = 100  # Baud rate (bits per second).
 bit_duration = 1 / baud_rate  # Duration of each bit in seconds.
-frequency_0 = 1600  # Frequency for 'A' compressed bit.
-frequency_1 = 2000  # Frequency for 'B' compressed bit.
-frequency_STOP = 2400  # Frequency for 'E' "stop-gap" marker.
+frequency_0 = 1600  # Frequency for '0' compressed bit.
+frequency_1 = 2000  # Frequency for '1' compressed bit.
+frequency_STOP = 2400  # Frequency for ' ' "stop-gap" marker.
 rest_frequency = 1200  # Rest frequency when nothing is being transmitted.
 sample_rate = 44100  # Sample rate (samples per second).
 '''The following is used for demodulation - frequency detection parameters.'''
@@ -349,7 +351,7 @@ def demodulate_process():
                                 else:
                                     active_dict = bits_to_letter
                             elif decoded_byte == '␄':
-                                demodulate_end() # Kill it
+                                demodulate_end()  # Kill it
                             else:
                                 print(decoded_byte, end="")
                     decoded_line = ""  # Clear the decoded_line after processing complete bytes
