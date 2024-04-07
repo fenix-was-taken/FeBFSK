@@ -113,7 +113,7 @@ def main():
         time.sleep(30)
         febfsk.send(febfsk.translation("␑T␑ransmission complete.␤"))
         time.sleep(3)
-        febfsk.send(febfsk.translation("␑D␑isconnecting.␤"))
+        febfsk.send(febfsk.translation("␑D␑isconnecting.␤␄"))
         time.sleep(3)
     else:
         print("Input was none listed.")
