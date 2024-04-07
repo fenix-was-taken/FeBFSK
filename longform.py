@@ -55,17 +55,17 @@ def main():
         febfsk.send(febfsk.translation_JP(
             "␒みんなさん、こんいちは。␤"
         ))
-        time.sleep(15)
+        time.sleep(5)
 
         febfsk.send(febfsk.translation(
             "␑NEXT SHOULD BE BINARY, USED FOR SENDING FILES WITH NO CHARACTER ENCODING.␤"
         ))
-        time.sleep(15)
+        time.sleep(5)
 
         febfsk.send(febfsk.translation_binary(
-            "␓01010101010101010101010101010101␤"
+            "␓␂01010101010101010101010101010101␃␤"
         ))
-        time.sleep(15)
+        time.sleep(5)
 
         febfsk.send(febfsk.translation(
             "␑THAT SHOULD BE IT.␤"
