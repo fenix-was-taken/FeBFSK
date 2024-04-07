@@ -42,19 +42,28 @@ def main():
             "␒なああああああああああああああああああああ"
         ))
     elif giveninput == 'C':
-        febfsk.send(febfsk.translation(
+        febfsk.send(febfsk.translation_binary(
             "␓01010101010101010101010101010101"
         ))
     elif giveninput == 'D':
         febfsk.send(febfsk.translation(
             "THIS IS A BASIC TEST OF DICTIONARY-SWITCHING BETWEEN LANGUAGES, FIRST SHOULD BE ENGLISH DISPLAYED HERE.␤"
             "NEXT SHOULD BE JAPANESE WHICH WILL BE DISPLAYED BELOW.␤"
+        ))
+        febfsk.send(febfsk.translation_JP(
             "␒みんなさん、こんいちは。␤"
+        ))
+        febfsk.send(febfsk.translation(
             "␑NEXT SHOULD BE BINARY, USED FOR SENDING FILES WITH NO CHARACTER ENCODING.␤"
+        ))
+        febfsk.send(febfsk.translation_binary(
             "␓01010101010101010101010101010101␤"
+        ))
+        febfsk.send(febfsk.translation(
             "␑THAT SHOULD BE IT.␤"
             "␄"
         ))
+        time.sleep(30)
     else:
         print("Input was none listed.")
         exit(0)
