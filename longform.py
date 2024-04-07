@@ -50,20 +50,28 @@ def main():
             "THIS IS A BASIC TEST OF DICTIONARY-SWITCHING BETWEEN LANGUAGES, FIRST SHOULD BE ENGLISH DISPLAYED HERE.␤"
             "NEXT SHOULD BE JAPANESE WHICH WILL BE DISPLAYED BELOW.␤"
         ))
+        time.sleep(3)
+
         febfsk.send(febfsk.translation_JP(
             "␒みんなさん、こんいちは。␤"
         ))
+        time.sleep(3)
+
         febfsk.send(febfsk.translation(
             "␑NEXT SHOULD BE BINARY, USED FOR SENDING FILES WITH NO CHARACTER ENCODING.␤"
         ))
+        time.sleep(3)
+
         febfsk.send(febfsk.translation_binary(
             "␓01010101010101010101010101010101␤"
         ))
+        time.sleep(3)
+
         febfsk.send(febfsk.translation(
             "␑THAT SHOULD BE IT.␤"
             "␄"
         ))
-        time.sleep(30)
+        time.sleep(3)
     else:
         print("Input was none listed.")
         exit(0)
