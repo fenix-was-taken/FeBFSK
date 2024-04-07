@@ -94,6 +94,7 @@ def main():
         ))
         time.sleep(45)
         febfsk.send(febfsk.translation("␑S␑ending file.␤"))
+        time.sleep(1)
         febfsk.send(febfsk.translation_binary(
             "␓␂"
             "10001001010100000100111001000111000011010000101000011010000010100000000000000000000000000000110101001001010"
@@ -109,9 +110,9 @@ def main():
             "00000011010000100000000000100010010001010100011010111000011111010100000000000000000000000000000000010010010"
             "1000101010011100100010010101110010000100110000010000010␃"
         ))
-        time.sleep(45)
+        time.sleep(30)
         febfsk.send(febfsk.translation("␑T␑ransmission complete.␤"))
-        time.sleep(1)
+        time.sleep(2)
         febfsk.send(febfsk.translation("␑D␑isconnecting.␤"))
         time.sleep(1)
     else:
