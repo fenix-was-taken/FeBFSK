@@ -75,6 +75,7 @@ def main():
         time.sleep(3)
     elif giveninput == 'E':
         febfsk.send(febfsk.translation(
+            "TEST WORDS TO MAKE SURE INPUT NOT BAD ␤"
             "_____            _____ ␤"
             "__  /______________  /_␤"
             "_  __/  _ \_  ___/  __/␤"
