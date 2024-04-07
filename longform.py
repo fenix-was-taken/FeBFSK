@@ -75,7 +75,8 @@ def main():
         time.sleep(3)
     elif giveninput == 'E':
         febfsk.send(febfsk.translation(
-            "H␑OPE THIS WORKS:␤"
+            "W␑elcome to:␤"
+            "␤"
             " oooooooooooo           oooooooooo.  oooooooooo.   .oooooo..o ␤"
             "`888'     `8           `888'   `␑Y␑8b `888'   `␑Y␑8b d8␑P␑'    `␑Y␑8 ␤"
             " 888          .ooooo.   888     888  888     888 ␑Y␑88bo.      ␤"
@@ -83,6 +84,13 @@ def main():
             " 888    \"    888ooo888  888    `88b  888    `88b      `\"␑Y␑88b ␤"
             " 888         888    .o  888    .88␑P␑  888    .88␑P␑ oo     .d8␑P␑ ␤"
             "o888o        `␑Y␑8bod8␑P␑' o888bood8␑P␑'  o888bood8␑P␑'  8""88888␑P␑' ␤"
+            "␤"
+            "␑V␑ermillion, ␑SD␑ - (605) XXX-XXXX | ␑S␑ys␑O␑p: ␑F␑e ␑N␑ix␤"
+            "␑P␑rism (#00843)  |  using ␑BBBS␑/␑L␑i6 v4.10, ␑D␑ada-2␤"
+            "␑T␑oday's date: ␑A␑pril 7, 2024 | ␑T␑ime: 12:26␑PM␑ ␑CST␑␤"
+            "␑I␑t is currently 55 degrees, light rain showers.␤"
+            "␑Y␑ou are the 99th caller.␤"
+            "␑Y␑ou have 30 minutes of connect time.␤"
         ))
     else:
         print("Input was none listed.")
