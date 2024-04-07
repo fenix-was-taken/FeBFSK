@@ -92,7 +92,7 @@ def main():
             "␑Y␑ou are the 99th caller.␤"
             "␑Y␑ou have 30 minutes of connect time.␤"
         ))
-        time.sleep(30)
+        time.sleep(45)
         febfsk.send(febfsk.translation("␑S␑ending file.␤"))
         febfsk.send(febfsk.translation_binary(
             "␓␂"
@@ -109,8 +109,9 @@ def main():
             "00000011010000100000000000100010010001010100011010111000011111010100000000000000000000000000000000010010010"
             "1000101010011100100010010101110010000100110000010000010␃"
         ))
-        time.sleep(30)
+        time.sleep(45)
         febfsk.send(febfsk.translation("␑T␑ransmission complete.␤"))
+        time.sleep(1)
         febfsk.send(febfsk.translation("␑D␑isconnecting.␤"))
         time.sleep(1)
     else:
