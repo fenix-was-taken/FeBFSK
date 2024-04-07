@@ -85,7 +85,7 @@ def main():
             " 888         888    .o  888    .88␑P␑  888    .88␑P␑ oo     .d8␑P␑ ␤"
             "o888o        `␑Y␑8bod8␑P␑' o888bood8␑P␑'  o888bood8␑P␑'  8""88888␑P␑' ␤"
             "␤"
-            "␑V␑ermillion, ␑SD␑ - (605) XXX-XXXX | ␑S␑ys␑O␑p: ␑F␑e ␑N␑ix␤"
+            "␑V␑ermillion, ␑SD␑ - (605) ␑XXX-XXXX␑ | ␑S␑ys␑O␑p: ␑F␑e ␑N␑ix␤"
             "␑P␑rism (#00843)  |  using ␑BBBS␑/␑L␑i6 v4.10, ␑D␑ada-2␤"
             "␑T␑oday's date: ␑A␑pril 7, 2024 | ␑T␑ime: 12:26␑PM␑ ␑CST␑␤"
             "␑I␑t is currently 55 degrees, light rain showers.␤"
