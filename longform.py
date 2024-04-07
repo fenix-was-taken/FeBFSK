@@ -43,7 +43,7 @@ def main():
         ))
     elif giveninput == 'C':
         febfsk.send(febfsk.translation_binary(
-            "␓01010101010101010101010101010101"
+            "␓␂01010101010101010101010101010101␃"
         ))
     elif giveninput == 'D':
         febfsk.send(febfsk.translation(
