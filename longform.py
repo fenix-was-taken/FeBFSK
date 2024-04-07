@@ -10,7 +10,7 @@ def main():
     print("[B]: Japanese test text")
     print("[C]: Binary")
     print("[D]: A test to switch between all of the above")
-    print("[E]: A printout like a BBS")
+    print("[E]: A printout like a BBS, and a fake file download")
     giveninput = input()
     if giveninput == 'A':
         febfsk.send(febfsk.translation(
