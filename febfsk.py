@@ -7,8 +7,8 @@ from scipy.signal import find_peaks
 "translation and "detranslation" functions.'''
 letter_to_bits = {
     '␑': '01',  # <<CAP>> using DC1, does not correspond with Unicode! Will actually toggle caps.
-    '␒': '10',  # DC2 for any use someone desires.
-    '␓': '11',  # DC3 for any use someone desires.
+    '␒': '10',  # DC2 for any use someone desires (in this project, to switch to Japanese.).
+    '␓': '11',  # DC3 for any use someone desires (in this project, to switch to pure binary).
     ' ': '00',
 
     '␂': '000',  # <<STX>>
@@ -94,8 +94,8 @@ letter_to_bits = {
 bits_to_letter = {v: k for k, v in letter_to_bits.items()}  # "letter_to_bits" but reversed.
 letter_to_bits_lowercase = {
     '␑': '01',  # <<CAP>> using DC1, does not correspond with Unicode! Will actually toggle caps.
-    '␒': '10',  # DC2 for any use someone desires.
-    '␓': '11',  # DC3 for any use someone desires.
+    '␒': '10',  # DC2 for any use someone desires (in this project, to switch to Japanese.).
+    '␓': '11',  # DC3 for any use someone desires (in this project, to switch to pure binary).
     ' ': '00',
 
     '␂': '000',  # <<STX>>
@@ -179,6 +179,286 @@ letter_to_bits_lowercase = {
     '{': '010011',
 }  # Dictionary that translates the standardized character set into binary bits.
 bits_to_letter_lowercase = {v: k for k, v in letter_to_bits_lowercase.items()}  # "letter_to_bits" but reversed.
+japanese_LTB = {
+    '␑': '01',  # <<CAP>> using DC1, does not correspond with Unicode! Will actually toggle caps.
+    '␒': '10',  # DC2 for any use someone desires (in this project, to switch to Japanese.).
+    '␓': '11',  # DC3 for any use someone desires (in this project, to switch to pure binary).
+    ' ': '00',
+
+    '␂': '000',  # <<STX>>
+    '␃': '001',  # <<ETX>>
+    '␄': '010',  # <<EOT>>: Will actually end transmission on receiving end.
+    '␅': '011',  # <<ENQ>>
+    '␆': '100',  # <<ACK>>
+    '␤': '101',  # <<NWL>>: Will actually print a newline.
+    '␛': '110',  # <<ESC>>
+    '␀': '111',  # <<NUL>>: Will actually print nothing. Good for buffers.
+
+    '♥': '0000',
+    'ぁ': '0001',
+    'ァ': '0010',
+    'あ': '0011',
+    'ア': '0100',
+    'ぃ': '0101',
+    'ィ': '0110',
+    'い': '0111',
+    'イ': '1000',
+    'ぅ': '1001',
+    'ゥ': '1010',
+    'う': '1011',
+    'ウ': '1100',
+    'ぇ': '1101',
+    'ェ': '1110',
+    'え': '1111',
+
+    'エ': '00000',
+    'ぉ': '00001',
+    'ォ': '00010',
+    'お': '00011',
+    'オ': '00100',
+    'か': '00101',
+    'カ': '00110',
+    'が': '00111',
+    'ガ': '01000',
+    'き': '01001',
+    'キ': '01010',
+    'ぎ': '01011',
+    'ギ': '01100',
+    'く': '01101',
+    'ク': '01110',
+    'ぐ': '01111',
+    'グ': '10000',
+    'け': '10001',
+    'ケ': '10010',
+    'げ': '10011',
+    'ゲ': '10100',
+    'こ': '10101',
+    'コ': '10110',
+    'ご': '10111',
+    'ゴ': '11000',
+    'さ': '11001',
+    'サ': '11010',
+    'ざ': '11011',
+    'ザ': '11100',
+    'し': '11101',
+    'シ': '11110',
+    'じ': '11111',
+
+    'ジ': '000000',
+    'す': '000001',
+    'ス': '000010',
+    'ず': '000011',
+    'ズ': '000100',
+    'せ': '000101',
+    'セ': '000110',
+    'ぜ': '000111',
+    'ゼ': '001000',
+    'そ': '001001',
+    'ソ': '001010',
+    'ぞ': '001011',
+    'ゾ': '001100',
+    'た': '001101',
+    'タ': '001110',
+    'だ': '001111',
+    'ダ': '010000',
+    'ち': '010001',
+    'チ': '010010',
+    'ぢ': '010011',
+    'ヂ': '010100',
+    'っ': '010101',
+    'ッ': '010110',
+    'つ': '010111',
+    'ツ': '011000',
+    'づ': '011001',
+    'ヅ': '011010',
+    'て': '011011',
+    'テ': '011100',
+    'で': '011101',
+    'デ': '011110',
+    'と': '011111',
+    'ト': '100000',
+    'ど': '100001',
+    'ド': '100010',
+    'な': '100011',
+    'ナ': '100100',
+    'に': '100101',
+    'ニ': '100110',
+    'ぬ': '100111',
+    'ヌ': '101000',
+    'ね': '101001',
+    'ネ': '101010',
+    'の': '101011',
+    'ノ': '101100',
+    'は': '101101',
+    'ハ': '101110',
+    'ば': '101111',
+    'バ': '110000',
+    'ぱ': '110001',
+    'パ': '110010',
+    'ひ': '110011',
+    'ヒ': '110100',
+    'び': '110101',
+    'ビ': '110110',
+    'ぴ': '110111',
+    'ピ': '111000',
+    'ふ': '111001',
+    'フ': '111010',
+    'ぶ': '111011',
+    'ブ': '111100',
+    'ぷ': '111101',
+    'プ': '111110',
+    'へ': '111111',
+
+    'ヘ': '0000000',
+    'べ': '0000001',
+    'ベ': '0000010',
+    'ぺ': '0000011',
+    'ペ': '0000100',
+    'ほ': '0000101',
+    'ホ': '0000110',
+    'ぼ': '0000111',
+    'ボ': '0001000',
+    'ぽ': '0001001',
+    'ポ': '0001010',
+    'ま': '0001011',
+    'マ': '0001100',
+    'み': '0001101',
+    'ミ': '0001110',
+    'む': '0001111',
+    'ム': '0010000',
+    'め': '0010001',
+    'メ': '0010010',
+    'も': '0010011',
+    'モ': '0010100',
+    'ゃ': '0010101',
+    'ャ': '0010110',
+    'や': '0010111',
+    'ヤ': '0011000',
+    'ゅ': '0011001',
+    'ュ': '0011010',
+    'ゆ': '0011011',
+    'ユ': '0011100',
+    'ょ': '0011101',
+    'ョ': '0011110',
+    'よ': '0011111',
+    'ヨ': '0100000',
+    'ら': '0100001',
+    'ラ': '0100010',
+    'り': '0100011',
+    'リ': '0100100',
+    'る': '0100101',
+    'ル': '0100110',
+    'れ': '0100111',
+    'レ': '0101000',
+    'ろ': '0101001',
+    'ロ': '0101010',
+    'ゎ': '0101011',
+    'ヮ': '0101100',
+    'わ': '0101101',
+    'ワ': '0101110',
+    'ゐ': '0101111',
+    'ヰ': '0110000',
+    'ゑ': '0110001',
+    'ヱ': '0110010',
+    'を': '0110011',
+    'ヲ': '0110100',
+    'ん': '0110101',
+    'ン': '0110110',
+    'ゔ': '0110111',
+    'ヴ': '0111000',
+    'ゕ': '0111001',
+    'ヵ': '0111010',
+    'ゖ': '0111011',
+    'ヶ': '0111100',
+    'ヷ': '0111101',
+    'ヸ': '0111110',
+    '゙': '0111111',
+    'ヹ': '1000000',
+    '゚': '1000001',
+    'ヺ': '1000010',
+    '゛': '1000011',
+    '・': '1000100',
+    '゜': '1000101',
+    'ー': '1000110',
+    'ゝ': '1000111',
+    'ヽ': '1001000',
+    'ゞ': '1001001',
+    'ヾ': '1001010',
+    'ゟ': '1001011',
+    'ヿ': '1001100',
+    '々': '1001101',
+    '仝': '1001110',
+    '「': '1001111',
+    '」': '1010000',
+    '『': '1010001',
+    '』': '1010010',
+    '（': '1010011',
+    '）': '1010100',
+    '〔': '1010101',
+    '〕': '1010110',
+    '［': '1010111',
+    '］': '1011000',
+    '｛': '1011001',
+    '｝': '1011010',
+    '｟': '1011011',
+    '｠': '1011100',
+    '〈': '1011101',
+    '〉': '1011110',
+    '《': '1011111',
+    '》': '1100000',
+    '【': '1100001',
+    '】': '1100010',
+    '〖': '1100011',
+    '〗': '1100100',
+    '〘': '1100101',
+    '〙': '1100110',
+    '〚': '1100111',
+    '〛': '1101000',
+    '。': '1101001',
+    '、': '1101010',
+    '゠': '1101011',
+    '〆': '1101100',
+    '〜': '1101101',
+    '…': '1101110',
+    '※': '1101111',
+    '＊': '1110000',
+    '♪': '1110001',
+    '〇': '1110010',
+    '：': '1110011',
+    '！': '1110100',
+    '？': '1110101',
+    '〒': '1110110',
+    '〄': '1110111',
+    'Ⓧ ': '1111000',
+    'Ⓛ': '1111001',
+    'Ⓨ': '1111010',
+    '♫': '1111011',
+    '♬': '1111100',
+    '♩': '1111101',
+    '〽': '1111110',
+    '￥': '1111111',
+}  # Experimental Japanese dictionary for switching languages. No research on how common characters are.
+japanese_BTL = {v: k for k, v in japanese_LTB.items()}
+purebinary_LTB = {
+    '␑': '01',  # <<CAP>> using DC1, does not correspond with Unicode! Will actually toggle caps.
+    '␒': '10',  # DC2 for any use someone desires (in this project, to switch to Japanese.).
+    '␓': '11',  # DC3 for any use someone desires (in this project, to switch to pure binary).
+    ' ': '00',
+
+    '␂': '000',  # <<STX>>
+    '␃': '001',  # <<ETX>>
+    '␄': '010',  # <<EOT>>: Will actually end transmission on receiving end.
+    '␅': '011',  # <<ENQ>>
+    '␆': '100',  # <<ACK>>
+    '␤': '101',  # <<NWL>>: Will actually print a newline.
+    '␛': '110',  # <<ESC>>
+    '␀': '111',  # <<NUL>>: Will actually print nothing. Good for buffers.
+
+    '0': '0',  # 0
+    '1': '1',  # 1
+
+}
+purebinary_BTL = {v: k for k, v in purebinary_LTB.items()}
 '''The following are variables used for the FSK signal generation.'''
 baud_rate = 100  # Baud rate (bits per second).
 bit_duration = 1 / baud_rate  # Duration of each bit in seconds.
@@ -350,6 +630,12 @@ def demodulate_process():
                                     active_dict = bits_to_letter_lowercase
                                 else:
                                     active_dict = bits_to_letter
+                            elif decoded_byte == '␒':
+                                # Switch dictionaries
+                                active_dict = japanese_BTL
+                            elif decoded_byte == '␓':
+                                # Switch dictionaries
+                                active_dict = purebinary_BTL
                             elif decoded_byte == '␄':
                                 demodulate_end()  # Kill it
                             else:
