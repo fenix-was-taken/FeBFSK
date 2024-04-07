@@ -488,6 +488,16 @@ def translation(input_str):
     return ' '.join(encoded_bits)
 
 
+def translation_JP(input_str):
+    encoded_bits = []
+    for char in input_str.upper():
+        if char in japanese_LTB:
+            encoded_bits.append(japanese_LTB[char])
+        else:
+            encoded_bits.append(' ')
+    return ' '.join(encoded_bits)
+
+
 def detranslation(input_str):
     decoded_bits = ''
     bits_list = input_str.split()

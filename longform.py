@@ -38,7 +38,7 @@ def main():
             "␄"
         ))
     elif giveninput == 'B':
-        febfsk.send(febfsk.translation(
+        febfsk.send(febfsk.translation_JP(
             "␒なああああああああああああああああああああ"
         ))
     elif giveninput == 'C':
