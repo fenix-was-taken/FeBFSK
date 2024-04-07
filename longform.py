@@ -6,10 +6,11 @@ def main():
     print("Second demonstration program to show longform text, like one might see if they were connecting to a server.")
     febfsk.modulate_start()
     print("Pick a longform text.")
-    print("[A]: Original English only formatted text")
-    print("[B]: Japanese text")
+    print("[A]: Original English-only formatted text")
+    print("[B]: Japanese test text")
     print("[C]: Binary")
     print("[D]: A test to switch between all of the above")
+    print("[E]: A printout like a BBS")
     giveninput = input()
     if giveninput == 'A':
         febfsk.send(febfsk.translation(
@@ -50,7 +51,7 @@ def main():
             "THIS IS A BASIC TEST OF DICTIONARY-SWITCHING BETWEEN LANGUAGES, FIRST SHOULD BE ENGLISH DISPLAYED HERE.␤"
             "NEXT SHOULD BE JAPANESE WHICH WILL BE DISPLAYED BELOW.␤"
         ))
-        time.sleep(15)
+        time.sleep(10)
 
         febfsk.send(febfsk.translation_JP(
             "␒みんなさん、こんいちは。␤"
@@ -72,6 +73,14 @@ def main():
             "␄"
         ))
         time.sleep(3)
+    elif giveninput == 'E':
+        febfsk.send(febfsk.translation(
+            "_____            _____ ␤"
+            "__  /______________  /_␤"
+            "_  __/  _ \_  ___/  __/␤"
+            "/ /_ /  __/(__  )/ /_  ␤"
+            "\__/ \___//____/ \__/  ␤"
+        ))
     else:
         print("Input was none listed.")
         exit(0)
