@@ -75,12 +75,14 @@ def main():
         time.sleep(3)
     elif giveninput == 'E':
         febfsk.send(febfsk.translation(
-            "TEST WORDS TO MAKE SURE INPUT NOT BAD ␤"
-            "_____            _____ ␤"
-            "__  /______________  /_␤"
-            "_  __/  _ \_  ___/  __/␤"
-            "/ /_ /  __/(__  )/ /_  ␤"
-            "\__/ \___//____/ \__/  ␤"
+            "H␑OPE THIS WORKS:␤"
+            " oooooooooooo           oooooooooo.  oooooooooo.   .oooooo..o ␤"
+            "`888'     `8           `888'   `␑Y␑8b `888'   `␑Y␑8b d8␑P␑'    `␑Y␑8 ␤"
+            " 888          .ooooo.   888     888  888     888 ␑Y␑88bo.      ␤"
+            " 888oooo8    d88' `88b  888oooo888'  888oooo888'  `\"␑Y␑8888o.  ␤"
+            " 888    \"    888ooo888  888    `88b  888    `88b      `\"␑Y␑88b ␤"
+            " 888         888    .o  888    .88␑P␑  888    .88␑P␑ oo     .d8␑P␑ ␤"
+            "o888o        `␑Y␑8bod8␑P␑' o888bood8␑P␑'  o888bood8␑P␑'  8""88888␑P␑' ␤"
         ))
     else:
         print("Input was none listed.")
